@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garis yang Gak Pernah Ketemu - Episode 7</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Garis yang Gak Pernah Ketemu</h1>
+        <h2>Episode 7: Melihat Tanpa Berharap</h2>
+        <div class="cerpen">
+            <p><strong>Ada perasaan aneh saat dia bertemu pandang dengan Elsa lagi.</strong></p>
+
+            <p>Bukan seperti dulu, ketika dadanya terasa penuh dengan harapan.</p>
+
+            <p>Bukan seperti dulu, ketika dia diam-diam menunggu kemungkinan yang tidak pernah nyata.</p>
+
+            <p><strong>Hari ini berbeda.</strong></p>
+
+            <p>Dia melihat Elsa.</p>
+
+            <p>Dan Elsa melihatnya.</p>
+
+            <p><strong>Tapi kali ini, dia tidak lagi bertanya dalam hati, "Apa dia menyadari keberadaanku?"</strong></p>
+
+            <p>Karena untuk pertama kalinya, dia tidak lagi mencari jawaban dari Elsa.</p>
+
+            <hr>
+
+            <h3>Bukan Cuek, Tapi Menghargai Diri Sendiri</h3>
+
+            <p>Dia tidak berusaha menghindar.</p>
+
+            <p>Tidak berpura-pura tidak mengenal Elsa.</p>
+
+            <p>Tidak mengabaikan kenyataan bahwa dulu, perasaannya begitu besar untuk seseorang yang bahkan tidak menyadarinya.</p>
+
+            <p><strong>Tapi dia juga tidak berusaha menarik perhatian.</strong></p>
+
+            <p>Tidak berharap Elsa tiba-tiba menyadari apa yang selama ini dia abaikan.</p>
+
+            <p><strong>Dia hanya fokus ke dirinya sendiri.</strong></p>
+
+            <p>Bukan berarti dia cuek.</p>
+
+            <p>Tapi karena dia sadar, dia sudah cukup berusaha.</p>
+
+            <p><strong>Dan tidak ada lagi alasan untuk menunggu seseorang yang bahkan tidak pernah melihat perjuangannya.</strong></p>
+
+            <hr>
+
+            <h3>Elsa yang Berbeda</h3>
+
+            <p>Ada sesuatu di mata Elsa ketika mereka berpapasan di sebuah acara.</p>
+
+            <p><strong>Seolah-olah, kali ini Elsa benar-benar melihatnya.</strong></p>
+
+            <p>Seolah-olah, ada sedikit keterlambatan dalam cara Elsa memahami apa yang sedang terjadi.</p>
+
+            <p>Seolah-olah, baru sekarang Elsa menyadari bahwa dia pernah ada.</p>
+
+            <p><strong>Dan mungkin, baru sekarang Elsa melihat bahwa dia sudah berhenti menunggu.</strong></p>
+
+            <hr>
+
+            <h3>Memilih Untuk Tidak Kembali</h3>
+
+            <p>Dia bisa saja tersenyum, mendekat, dan mencoba berbicara dengan Elsa seperti dulu.</p>
+
+            <p>Dia bisa saja kembali seperti sebelum semuanya berubah.</p>
+
+            <p><strong>Tapi dia tidak melakukannya.</strong></p>
+
+            <p>Karena dia tahu, dia tidak ingin kembali ke titik di mana dia harus berjuang sendiri.</p>
+
+            <p><strong>Bukan karena dia marah.</strong></p>
+
+            <p><strong>Bukan karena dia ingin membalas.</strong></p>
+
+            <p><strong>Tapi karena dia menghargai dirinya sendiri.</strong></p>
+
+            <p>Dia memilih untuk tetap berjalan, dengan hati yang lebih tenang, tanpa rasa ingin membuktikan apa-apa.</p>
+
+            <p>Karena kali ini, dia sadar:</p>
+
+            <p><strong>Dia tidak butuh dilihat Elsa untuk merasa berarti.</strong></p>
+        </div>
+
+        <hr>
+
+        <a href="episode6.html" class="prev-button">◀ Kembali ke Episode 6</a>
+        <a href="Ep8.html" class="next-button">Lanjut ke Episode 8 ▶</a>
+    </div>
+</body>
+</html>
