@@ -12,41 +12,27 @@
         <h2>Epilog: Melepaskan yang Tidak Pernah Bisa Kembali</h2>
         <div class="cerpen">
             <p><strong>Elsa berjalan perlahan keluar dari gedung pernikahan.</strong></p>
-
             <p><strong>Hari ini, bukan hanya pria itu yang menikah.</strong></p>
-
             <p><strong>Tapi hari ini juga menjadi hari di mana Elsa harus menerima kenyataan.</strong></p>
-
             <p><strong>Bahwa pria itu kini benar-benar pergi.</strong></p>
 
             <hr>
 
             <h2>Renungan: Tentang Kehilangan yang Terlambat Disadari</h2>
-
             <p>Kehilangan paling menyakitkan bukanlah kehilangan orang yang meninggalkan kita,</p>
-
             <p><strong>tapi kehilangan seseorang yang sebenarnya ingin tetap tinggal,</strong></p>
-
             <p><strong>tapi kita sendiri yang membuat mereka memilih pergi.</strong></p>
 
             <hr>
 
             <h2>Menyesal yang Tidak Berguna Lagi</h2>
-
             <p><strong>Elsa kini mengerti satu hal.</strong></p>
-
             <p><strong>Cinta yang kita abaikan hari ini, bisa menjadi penyesalan yang akan kita tanggung seumur hidup.</strong></p>
-
             <p><strong>Jadi, jika kamu mencintai seseorang…</strong></p>
-
             <p><strong>Jangan menunggu sampai dia pergi untuk menyadarinya.</strong></p>
-
             <p><strong>Karena bisa saja, saat kamu baru mulai melihatnya dengan cara yang berbeda,</strong></p>
-
             <p><strong>dia sudah menemukan seseorang yang selalu melihatnya dengan cara itu sejak awal.</strong></p>
-
             <p><strong>Dan saat itu terjadi, kamu hanya akan menjadi seperti Elsa.</strong></p>
-
             <p><strong>Menyesali sesuatu yang tidak akan pernah bisa kamu miliki lagi.</strong></p>
         </div>
 
@@ -54,31 +40,30 @@
 
         <a href="episode24.html" class="prev-button">◀ Kembali ke Episode 24</a>
 
-        <!-- Menampilkan jumlah pembaca -->
-        <p id="visitorCount" style="text-align: center; font-size: 18px; color: #555;"></p>
+        <!-- Elemen ini akan menampilkan jumlah pembaca -->
+        <p id="visitorCount" style="text-align: center; font-size: 18px; color: #555; display: none;"></p>
     </div>
 
-    <!-- JavaScript untuk melacak jumlah pembaca -->
+    <!-- ✅ JavaScript harus ditambahkan SEBELUM </body> -->
     <script>
         function trackView() {
             let params = new URLSearchParams(window.location.search);
             
-            // Jika URL mengandung ?admin=true, jumlah pembaca tidak bertambah
-            if (params.get("admin") !== "true") {
-                let count = localStorage.getItem("visitorCount");
+            let count = localStorage.getItem("visitorCount");
 
-                if (!count) {
-                    count = 1;
-                } else {
-                    count = parseInt(count) + 1;
-                }
+            if (!count) {
+                count = 1;
+            } else if (params.get("admin") !== "true") {
+                count = parseInt(count) + 1;
+            }
 
-                localStorage.setItem("visitorCount", count);
+            localStorage.setItem("visitorCount", count);
 
-                document.getElementById("visitorCount").innerHTML = "👀 Total Pembaca: " + count;
-            } else {
-                let count = localStorage.getItem("visitorCount") || 0;
-                document.getElementById("visitorCount").innerHTML = "👀 Total Pembaca: " + count + " (Admin Mode, Tidak Bertambah)";
+            // Hanya admin yang bisa melihat jumlah pembaca
+            if (params.get("admin") === "true") {
+                let counterElement = document.getElementById("visitorCount");
+                counterElement.innerHTML = "👀 Total Pembaca: " + count + " (Admin Mode)";
+                counterElement.style.display = "block"; // Menampilkan angka pembaca hanya untuk admin
             }
         }
 
@@ -86,4 +71,4 @@
     </script>
 
 </body>
-          </html>
+</html>
