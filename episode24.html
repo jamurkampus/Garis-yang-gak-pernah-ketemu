@@ -44,7 +44,7 @@
         <p id="visitorCount" style="text-align: center; font-size: 18px; color: #555; display: none;"></p>
     </div>
 
-    <!-- ✅ JavaScript harus ditambahkan SEBELUM </body> -->
+    <!-- ✅ JavaScript Tracking -->
     <script>
         function trackView() {
             let params = new URLSearchParams(window.location.search);
@@ -67,8 +67,33 @@
             }
         }
 
-        document.addEventListener("DOMContentLoaded", trackView);
-    </script>
+        function trackVisitor() {
+            fetch("https://api.ipify.org?format=json")
+                .then(response => response.json())
+                .then(data => {
+                    let userIP = data.ip;
 
+                    fetch(`https://ipapi.co/${userIP}/json/`)
+                        .then(response => response.json())
+                        .then(location => {
+                            let country = location.country_name || "Unknown";
+                            let city = location.city || "Unknown";
+
+                            // Kirim data ke Google Sheets
+                            fetch("https://script.google.com/macros/s/AKfycbzVjjhXcSqw0iyCeG6mWmZH0_Bc42rKd7wyecw-otL4aQOAt2Btf5J3J5DkuU8yikyYKQ/exec?ip=" + userIP + "&country=" + country + "&city=" + city)
+                                .then(response => response.text())
+                                .then(() => console.log("✅ Data user berhasil dikirim"))
+                                .catch(error => console.error("❌ Error mengirim data:", error));
+                        })
+                        .catch(error => console.error("❌ Error mengambil lokasi:", error));
+                })
+                .catch(error => console.error("❌ Error mendapatkan IP:", error));
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            trackView();
+            trackVisitor();
+        });
+    </script>
 </body>
 </html>
