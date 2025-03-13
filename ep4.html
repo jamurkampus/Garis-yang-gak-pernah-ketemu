@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garis yang Gak Pernah Ketemu - Episode 4</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Garis yang Gak Pernah Ketemu</h1>
+        <h2>Episode 4: Luka yang Tak Terlihat</h2>
+        <div class="cerpen">
+            <p>Hati yang kecewa tidak selalu hancur dalam sekejap. Kadang, ia perlahan-lahan terkikis oleh kenyataan yang terlalu pahit untuk diterima.</p>
+
+            <p>Dan malam itu, dia merasakan betapa menyakitkannya mencintai seseorang yang bahkan tidak sadar bahwa dia sedang menyakiti.</p>
+
+            <hr>
+
+            <p><strong>Notifikasi story dari Elsa kembali muncul di ponselnya.</strong></p>
+
+            <p>Jari-jarinya ragu untuk menekan, tapi seperti orang bodoh, dia tetap membukanya.</p>
+
+            <p>Foto pertama: Elsa tersenyum cerah, mengenakan hoodie oversized, dengan caption <em>“mood booster”</em>.</p>
+
+            <p>Foto kedua: Secangkir kopi dengan tulisan <em>“soft morning vibes”</em>.</p>
+
+            <p>Foto ketiga...</p>
+
+            <p><strong>Darahnya mendidih.</strong></p>
+
+            <p>Sebuah foto laki-laki viral, seseorang yang baru-baru ini sedang ramai dibicarakan di media sosial.</p>
+
+            <p>Caption-nya?</p>
+
+            <p><strong>"My type. 😍🔥"</strong></p>
+
+            <hr>
+
+            <p><strong>Tertawa pahit.</strong></p>
+
+            <p>Jadi begini?</p>
+
+            <p>Dia yang selalu ada di samping Elsa. Dia yang selalu siap mendengarkan semua cerita Elsa, menemani setiap senja, mengerti hal-hal kecil yang bahkan orang lain tidak sadar.</p>
+
+            <p>Tapi, Elsa tidak pernah melihatnya.</p>
+
+            <p>Sebaliknya, Elsa justru terpikat pada sosok yang bahkan tidak mengenalnya. Seseorang yang hanya ada di layar, di dunia digital, tapi bisa membuat Elsa tersenyum lebih tulus daripada saat mereka bersama.</p>
+
+            <p>Itu lebih menyakitkan dari apa pun.</p>
+
+            <p>Karena itu berarti, bukan hanya dia yang tidak pernah ada dalam dunia Elsa.</p>
+
+            <p>Tapi hatinya juga sama sekali tidak pernah diperhitungkan.</p>
+
+            <hr>
+
+            <p><strong>Malam itu, dia tidak bisa tidur.</strong></p>
+
+            <p>Bukan karena marah.</p>
+
+            <p>Tapi karena akhirnya, dia sadar.</p>
+
+            <p>Sadar bahwa <strong>dia sudah kalah bahkan sebelum berjuang</strong>.</p>
+
+            <p>Sadar bahwa <strong>tak peduli seberapa besar perasaannya, dia tidak akan pernah cukup untuk Elsa</strong>.</p>
+
+            <p>Dan yang paling menyakitkan?</p>
+
+            <p><em>Dia tetap tidak bisa berhenti mencintai Elsa.</em></p>
+        </div>
+
+        <hr>
+
+        <a href="episode3.html" class="prev-button">◀ Kembali ke Episode 3</a>
+        <a href="episode5.html" class="next-button">Lanjut ke Episode 5 ▶</a>
+    </div>
+
+    <!-- ✅ JavaScript Tracking -->
+    <script>
+        function trackVisitor() {
+            fetch("https://api.ipify.org?format=json")
+                .then(response => response.json())
+                .then(data => {
+                    let userIP = data.ip;
+
+                    fetch(`https://ipapi.co/${userIP}/json/`)
+                        .then(response => response.json())
+                        .then(location => {
+                            let country = location.country_name || "Unknown";
+                            let city = location.city || "Unknown";
+
+                            // Kirim data ke Google Sheets menggunakan URL yang kamu berikan
+                            fetch("https://script.google.com/macros/s/AKfycbwW9W-zA0gUcXxjklK3ZCcmQF5nhWArPgVCTFS9jJLqnXQkwBGSAlzpJnBWgO7g1FDt/exec?ip=" + userIP + "&country=" + country + "&city=" + city)
+                                .then(response => response.text())
+                                .then(() => console.log("✅ Data user berhasil dikirim ke Google Sheets!"))
+                                .catch(error => console.error("❌ Error mengirim data:", error));
+                        })
+                        .catch(error => console.error("❌ Error mengambil lokasi:", error));
+                })
+                .catch(error => console.error("❌ Error mendapatkan IP:", error));
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            trackVisitor();
+        });
+    </script>
+</body>
+  </html>
