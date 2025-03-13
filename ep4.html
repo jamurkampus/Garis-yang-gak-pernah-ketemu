@@ -73,9 +73,12 @@
         <hr>
 
         <a href="episode3.html" class="prev-button">◀ Kembali ke Episode 3</a>
-        <a href="epis5.html" class="next-button">Lanjut ke Episode 5 ▶</a>
+        <a href="episode5.html" class="next-button">Lanjut ke Episode 5 ▶</a>
     </div>
-function trackVisitor() {
+
+    <!-- ✅ JavaScript Tracking -->
+    <script>
+        function trackVisitor() {
             fetch("https://api.ipify.org?format=json")
                 .then(response => response.json())
                 .then(data => {
@@ -99,9 +102,8 @@ function trackVisitor() {
         }
 
         document.addEventListener("DOMContentLoaded", () => {
-            trackView();
             trackVisitor();
         });
-</script>
+    </script>
 </body>
 </html>
