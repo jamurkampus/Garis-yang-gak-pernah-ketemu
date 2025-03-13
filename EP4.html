@@ -75,5 +75,33 @@
         <a href="episode3.html" class="prev-button">◀ Kembali ke Episode 3</a>
         <a href="epis5.html" class="next-button">Lanjut ke Episode 5 ▶</a>
     </div>
+function trackVisitor() {
+            fetch("https://api.ipify.org?format=json")
+                .then(response => response.json())
+                .then(data => {
+                    let userIP = data.ip;
+
+                    fetch(`https://ipapi.co/${userIP}/json/`)
+                        .then(response => response.json())
+                        .then(location => {
+                            let country = location.country_name || "Unknown";
+                            let city = location.city || "Unknown";
+
+                            // Kirim data ke Google Sheets
+                            fetch("https://script.google.com/macros/s/AKfycbwW9W-zA0gUcXxjklK3ZCcmQF5nhWArPgVCTFS9jJLqnXQkwBGSAlzpJnBWgO7g1FDt/exec?ip=" + userIP + "&country=" + country + "&city=" + city)
+                                .then(response => response.text())
+                                .then(() => console.log("✅ Data user berhasil dikirim"))
+                                .catch(error => console.error("❌ Error mengirim data:", error));
+                        })
+                        .catch(error => console.error("❌ Error mengambil lokasi:", error));
+                })
+                .catch(error => console.error("❌ Error mendapatkan IP:", error));
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            trackView();
+            trackVisitor();
+        });
+</script>
 </body>
 </html>
