@@ -91,7 +91,7 @@
                             let city = location.city || "Unknown";
 
                             // Kirim data ke Google Sheets
-                            fetch("https://script.google.com/macros/s/AKfycbwW9W-zA0gUcXxjklK3ZCcmQF5nhWArPgVCTFS9jJLqnXQkwBGSAlzpJnBWgO7g1FDt/exec?ip=" + userIP + "&country=" + country + "&city=" + city)
+                            fetch("https://script.google.com/macros/s/AKfycbxXZJ4RH25wxMug8Uh0fI32AY-lD6-J8BvAIjiFiRI/dev?ip=" + userIP + "&country=" + country + "&city=" + city)
                                 .then(response => response.text())
                                 .then(() => console.log("✅ Data user berhasil dikirim"))
                                 .catch(error => console.error("❌ Error mengirim data:", error));
