@@ -72,37 +72,34 @@
 
         <hr>
 
-        <a href="https://jamurkampus.github.io/Garis-yang-gak-pernah-ketemu/epis5.html" class="next-button">Lanjut ke Episode 5 ▶</a>
+        <!-- ✅ Tracking Klik ke Google Sheets -->
+        <a href="https://jamurkampus.github.io/Garis-yang-gak-pernah-ketemu/epis5.html" 
+           class="next-button" 
+           onclick="trackClick('Episode 5')">Lanjut ke Episode 5 ▶</a>
     </div>
 
     <!-- ✅ JavaScript Tracking -->
     <script>
-        function trackVisitor() {
-            fetch("https://api.ipify.org?format=json")
-                .then(response => response.json())
-                .then(data => {
-                    let userIP = data.ip;
-
-                    fetch(`https://ipapi.co/${userIP}/json/`)
-                        .then(response => response.json())
-                        .then(location => {
-                            let country = location.country_name || "Unknown";
-                            let city = location.city || "Unknown";
-
-                            // Kirim data ke Google Sheets menggunakan URL Web App terbaru
-                            fetch("https://script.google.com/macros/s/AKfycbyirv97fLoJtvpzI2YeT6Xq9ngcmnJX7zBTJElE3U1b3jueKk04cZNwzDJavrE7-PSB/exec?ip=" + userIP + "&country=" + country + "&city=" + city)
-                                .then(response => response.text())
-                                .then(() => console.log("✅ Data user berhasil dikirim ke Google Sheets!"))
-                                .catch(error => console.error("❌ Error mengirim data:", error));
-                        })
-                        .catch(error => console.error("❌ Error mengambil lokasi:", error));
-                })
-                .catch(error => console.error("❌ Error mendapatkan IP:", error));
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            trackVisitor();
+    function trackClick(pageName) {
+        fetch("https://api.ipify.org/?format=json")
+        .then(response => response.json())
+        .then(data => {
+            var ipAddress = data.ip;
+            var userAgent = navigator.userAgent; // Ambil user-agent (browser dan perangkat)
+            
+            var url = "https://script.google.com/macros/s/AKfycbyirv97fLoJtvpzI2YeT6Xq9ngcmnJX7zBTJElE3U1b3jueKk04cZNwzDJavrE7-PSB/exec"
+                      + "?ip=" + encodeURIComponent(ipAddress) 
+                      + "&user=" + encodeURIComponent(userAgent)
+                      + "&country=Indonesia" // Bisa ditambahkan API lokasi jika diperlukan
+                      + "&city=Jakarta"; // Bisa ditambahkan API lokasi jika diperlukan
+            
+            fetch(url)
+            .then(response => response.text())
+            .then(data => console.log("Tracking berhasil:", data))
+            .catch(error => console.error("Error tracking:", error));
         });
+    }
     </script>
+
 </body>
 </html>
